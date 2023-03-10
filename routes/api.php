@@ -43,6 +43,6 @@ Route::put('/movies/{id}', function (Request $request, $id) {
 Route::delete('/movies/{id}', function ($id) {
     Movie::find($id)->delete();
 
-    return 204;
+    return 204; //204 es el código de respuesta HTTP para una solicitud exitosa que no devuelve contenido
 });
 
