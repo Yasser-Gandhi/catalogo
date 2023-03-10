@@ -33,3 +33,16 @@ Route::post('/movies', function (Request $request) {
     return Movie::create($request->all());
 });
 
+Route::put('/movies/{id}', function (Request $request, $id) {
+    $movie = Movie::findOrFail($id);
+    $movie->update($request->all());
+
+    return $movie;
+});
+
+Route::delete('/movies/{id}', function ($id) {
+    Movie::find($id)->delete();
+
+    return 204;
+});
+
